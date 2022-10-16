@@ -23,6 +23,8 @@ func InitRouter() {
 	r.GET("/problem_by_proid", api.QueryProblemByProblemID)
 
 	r.GET("/user", api.GetAllAdmin)
+	// 得到所有正在进行中的比赛
+	r.GET("/doing_contest", api.GetDoingContest)
 	// 保存测试数据
 
 	var admin = r.Group("/admin")
@@ -34,6 +36,7 @@ func InitRouter() {
 		admin.POST("/add_problem", api.AddProblem)
 		//添加竞赛或作业
 		admin.POST("/add_contest", api.AddContest)
+
 	}
 
 	// 提交代码
